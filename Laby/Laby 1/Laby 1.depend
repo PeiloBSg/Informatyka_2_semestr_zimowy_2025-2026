@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1760366416 source:c:\users\progu\desktop\laby 1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	<math.h>
+

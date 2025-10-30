@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1760971525 source:c:\users\progu\desktop\laby 2\main.cpp
+	<iostream>
+	"Pilka.h"
+	"paletka.h"
+
+1760970576 c:\users\progu\desktop\laby 2\pilka.h
+	<iostream>
+
+1760971718 c:\users\progu\desktop\laby 2\paletka.h
+	<iostream>
+
+1760967925 source:c:\users\progu\desktop\polibuda\3 semestr\informatyka\laby github\laby 2\main.cpp
+	<iostream>
+	"Pilka.h"
+	"paletka.h"
+
+1761846314 c:\users\progu\desktop\polibuda\3 semestr\informatyka\laby github\laby 2\pilka.h
+	<iostream>
+
+1760968118 c:\users\progu\desktop\polibuda\3 semestr\informatyka\laby github\laby 2\paletka.h
+	<iostream>
+
