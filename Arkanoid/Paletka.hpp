@@ -13,6 +13,7 @@ private:
 public:
 	Paddle(float sx, float sy, float sd, float sh, float sV);
 
+	//Metody
 	void moveLeft();
 	void moveRight();
 	void clampToBounds(float width);

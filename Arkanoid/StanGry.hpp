@@ -1,0 +1,8 @@
+#pragma once
+
+enum class GameState {
+    Menu,
+    Playing,
+    Scores,
+    Exiting
+};

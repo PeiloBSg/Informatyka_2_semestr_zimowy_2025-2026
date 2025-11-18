@@ -1,9 +1,19 @@
-﻿  Arkanoid.cpp
-C:\Users\progu\Desktop\PoliBuda\3 semestr\Informatyka\Informatyka_2_semestr_zimowy_2025-2026\Arkanoid\Arkanoid.cpp(14,50): warning C4244: "argument": konwersja z "const float" do "unsigned int", możliwa utrata danych
-C:\Users\progu\Desktop\PoliBuda\3 semestr\Informatyka\Informatyka_2_semestr_zimowy_2025-2026\Arkanoid\Arkanoid.cpp(14,43): warning C4244: "argument": konwersja z "const float" do "unsigned int", możliwa utrata danych
+﻿  Game.cpp
+C:\Users\progu\Desktop\PoliBuda\3 semestr\Informatyka\Informatyka_2_semestr_zimowy_2025-2026\Arkanoid\Game.cpp(5,35): warning C4244: "argument": konwersja z "float" do "unsigned int", możliwa utrata danych
+C:\Users\progu\Desktop\PoliBuda\3 semestr\Informatyka\Informatyka_2_semestr_zimowy_2025-2026\Arkanoid\Game.cpp(5,28): warning C4244: "argument": konwersja z "float" do "unsigned int", możliwa utrata danych
+C:\Users\progu\Desktop\PoliBuda\3 semestr\Informatyka\Informatyka_2_semestr_zimowy_2025-2026\Arkanoid\Game.cpp(8,48): warning C4244: "argument": konwersja z "T" do "float", możliwa utrata danych
+C:\Users\progu\Desktop\PoliBuda\3 semestr\Informatyka\Informatyka_2_semestr_zimowy_2025-2026\Arkanoid\Game.cpp(8,48): warning C4244:         with
+C:\Users\progu\Desktop\PoliBuda\3 semestr\Informatyka\Informatyka_2_semestr_zimowy_2025-2026\Arkanoid\Game.cpp(8,48): warning C4244:         [
+C:\Users\progu\Desktop\PoliBuda\3 semestr\Informatyka\Informatyka_2_semestr_zimowy_2025-2026\Arkanoid\Game.cpp(8,48): warning C4244:             T=unsigned int
+C:\Users\progu\Desktop\PoliBuda\3 semestr\Informatyka\Informatyka_2_semestr_zimowy_2025-2026\Arkanoid\Game.cpp(8,48): warning C4244:         ]
+C:\Users\progu\Desktop\PoliBuda\3 semestr\Informatyka\Informatyka_2_semestr_zimowy_2025-2026\Arkanoid\Game.cpp(8,28): warning C4244: "argument": konwersja z "T" do "float", możliwa utrata danych
+C:\Users\progu\Desktop\PoliBuda\3 semestr\Informatyka\Informatyka_2_semestr_zimowy_2025-2026\Arkanoid\Game.cpp(8,28): warning C4244:         with
+C:\Users\progu\Desktop\PoliBuda\3 semestr\Informatyka\Informatyka_2_semestr_zimowy_2025-2026\Arkanoid\Game.cpp(8,28): warning C4244:         [
+C:\Users\progu\Desktop\PoliBuda\3 semestr\Informatyka\Informatyka_2_semestr_zimowy_2025-2026\Arkanoid\Game.cpp(8,28): warning C4244:             T=unsigned int
+C:\Users\progu\Desktop\PoliBuda\3 semestr\Informatyka\Informatyka_2_semestr_zimowy_2025-2026\Arkanoid\Game.cpp(8,28): warning C4244:         ]
   Trwa generowanie kodu
-  176 of 207 functions (85.0%) were compiled, the rest were copied from previous compilation.
-    4 functions were new in current compilation
-    2 functions had inline decision re-evaluated but remain unchanged
+  45 of 284 functions (15.8%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    16 functions had inline decision re-evaluated but remain unchanged
   Zakończono generowanie kodu
   Arkanoid.vcxproj -> C:\Users\progu\Desktop\PoliBuda\3 semestr\Informatyka\Informatyka_2_semestr_zimowy_2025-2026\Arkanoid\x64\Release\Arkanoid.exe

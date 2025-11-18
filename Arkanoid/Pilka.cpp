@@ -35,10 +35,6 @@ void Ball::collideWalls(float width, float height) {
 		bounceY();
 }
 
-void Ball::collidePaddle() {
-
-}
-
 void Ball::draw(sf::RenderTarget& target) {
 	shape.setPosition(Pozycja);
 	target.draw(shape);

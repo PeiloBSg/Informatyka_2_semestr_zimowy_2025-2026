@@ -13,6 +13,7 @@ private:
 public:
 	Brick(sf::Vector2f startPo, sf::Vector2f rozmiar, int L);
 
+	//Metody
 	void aktualizujKolor();		//Funkcja zmieniania kolor klocka w zale¿noœci od punktyZycia
 	void trafienie();		//mechanizm aktualizacji punktów ¿ycia
 	void draw(sf::RenderTarget& window);

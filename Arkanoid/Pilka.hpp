@@ -12,11 +12,11 @@ private:
 public:
 	Ball(float sx, float sy, float svx, float svy, float sr);
 
+	//Metody
 	void move();
 	void bounceX();
 	void bounceY();
 	void collideWalls(float width, float height);
-	void collidePaddle();
 	void draw(sf::RenderTarget& target);
 
 	//Gettery
