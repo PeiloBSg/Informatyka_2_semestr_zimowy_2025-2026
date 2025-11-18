@@ -127,12 +127,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Arkanoid.cpp" />
+    <ClCompile Include="Cegla.cpp" />
+    <ClCompile Include="Paletka.cpp" />
+    <ClCompile Include="Pilka.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Cegla.h" />
-    <ClInclude Include="Game.h" />
-    <ClInclude Include="Paletka.h" />
-    <ClInclude Include="Pilka.h" />
+    <ClInclude Include="Cegla.hpp" />
+    <ClInclude Include="Paletka.hpp" />
+    <ClInclude Include="Pilka.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

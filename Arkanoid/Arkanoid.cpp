@@ -1,7 +1,7 @@
 ﻿#include <iostream>
-#include "Pilka.h"
-#include "Paletka.h"
-#include "Cegla.h"
+#include "Pilka.hpp"
+#include "Paletka.hpp"
+#include "Cegla.hpp"
 #include <SFML/Graphics.hpp>
 #include <vector>
 
