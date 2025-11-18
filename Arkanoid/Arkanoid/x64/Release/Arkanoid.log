@@ -1,0 +1,8 @@
+﻿  Arkanoid.cpp
+C:\Users\progu\Desktop\Arkanoid\Arkanoid.cpp(14,50): warning C4244: "argument": konwersja z "const float" do "unsigned int", możliwa utrata danych
+C:\Users\progu\Desktop\Arkanoid\Arkanoid.cpp(14,43): warning C4244: "argument": konwersja z "const float" do "unsigned int", możliwa utrata danych
+  Trwa generowanie kodu
+  Previous IPDB and IOBJ mismatch, fall back to full compilation.
+  All 207 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Zakończono generowanie kodu
+  Arkanoid.vcxproj -> C:\Users\progu\Desktop\Arkanoid\x64\Release\Arkanoid.exe
