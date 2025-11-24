@@ -40,6 +40,7 @@ void Ball::draw(sf::RenderTarget& target) {
 	target.draw(shape);
 }
 
+
 //Gettery
 sf::Vector2f Ball::getPosition() const { 
 	return Pozycja; 

@@ -66,6 +66,28 @@ void Game::resetGame() {
     }
 }
 
+void Game::saveGameState() {
+    // Tworzenie snapshotu aktualnego stanu gry
+    GameSnapshot* snapshot = new GameSnapshot(paletka, pilka, bloki);
+
+    // Tutaj mo¿esz zapisaæ ten stan do pliku lub u¿yæ go do funkcji "Cofnij"
+    currentGameSnapshot = snapshot;
+
+    // Przyk³adowe u¿ycie - wyœwietlenie informacji
+    std::cout << "Zapisano stan gry: " << snapshot->getBlocks().size()
+        << " aktywnych bloków" << std::endl;
+}
+
+void Game::saveGame() {
+    GameSnapshot snapshot(paletka, pilka, bloki);
+    if (snapshot.saveToFile("zapis.txt")) {
+        std::cout << "Gra zapisana!" << std::endl;
+    }
+    else {
+        std::cout << "Blad zapisu gry!" << std::endl;
+    }
+}
+
 void Game::processEvents() {
     sf::Event event;
     while (window.pollEvent(event)) {
@@ -76,6 +98,11 @@ void Game::processEvents() {
             // Obs³uga ESC - powrót do menu z gry
             if (event.key.code == sf::Keyboard::Escape && currentState == GameState::Playing) {
                 currentState = GameState::Menu;
+            }
+
+            // ZAPIS GRY - F5
+            if (event.key.code == sf::Keyboard::F5 && currentState == GameState::Playing) {
+                saveGame();
             }
 
             // Obs³uga menu g³ównego
@@ -97,11 +124,16 @@ void Game::processEvents() {
                         currentState = GameState::Playing;
                         std::cout << "Uruchamiam gre..." << std::endl;
                         break;
-                    case 1: // Ostatnie wyniki
+                    case 1: // Wczytaj Gre
+                        resetGame();
+                        currentState = GameState::Playing;
+                        std::cout << "Wczytuje..." << std::endl;
+                        break;
+                    case 2: // Ostatnie wyniki
                         currentState = GameState::Scores;
                         std::cout << "Najlepsze wyniki..." << std::endl;
                         break;
-                    case 2: // Wyjœcie
+                    case 3: // Wyjœcie
                         currentState = GameState::Exiting;
                         std::cout << "Koniec gry..." << std::endl;
                         break;
@@ -235,17 +267,15 @@ void Game::render() {
 }
 
 void Game::run() {
+
     sf::Clock clock;
+
     while (window.isOpen()) {
+
         sf::Time deltaTime = clock.restart();
         processEvents();
-
-        if (currentState == GameState::Exiting) {
-            window.close();
-            break;
-        }
-
         update(deltaTime);
         render();
+
     }
 }

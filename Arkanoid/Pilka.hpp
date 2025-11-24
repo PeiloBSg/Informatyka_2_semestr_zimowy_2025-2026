@@ -19,6 +19,7 @@ public:
 	void collideWalls(float width, float height);
 	void draw(sf::RenderTarget& target);
 
+
 	//Gettery
 	sf::Vector2f getPosition() const;
 	sf::Vector2f getVelocity() const;

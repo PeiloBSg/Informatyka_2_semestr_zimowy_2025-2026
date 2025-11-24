@@ -2,7 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
-#define MAX_LICZBA_POZIOMOW 3
+#define MAX_LICZBA_POZIOMOW 4
 
 class Menu
 {

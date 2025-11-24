@@ -17,6 +17,10 @@ public:
 	void aktualizujKolor();		//Funkcja zmieniania kolor klocka w zale¿noœci od punktyZycia
 	void trafienie();		//mechanizm aktualizacji punktów ¿ycia
 	void draw(sf::RenderTarget& window);
-	bool czyZniszczony() { return jestZniszczony; }
+
+	//Getter
+	bool czyZniszczony() const;
+	sf::Vector2f getPosition() const;
+	int getHP() const;
 
 };

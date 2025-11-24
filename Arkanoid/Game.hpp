@@ -6,6 +6,7 @@
 #include "Cegla.hpp"
 #include "Menu.hpp"
 #include "StanGry.hpp"
+#include "GameSnapshot.hpp"
 
 class Game {
 private:
@@ -17,6 +18,7 @@ private:
     std::vector<Brick> bloki;
     Menu menu;
     GameState currentState;
+    GameSnapshot* currentGameSnapshot;
 
     //Metody
     void resetGame();
@@ -25,6 +27,8 @@ private:
     void controlBall();
     void update(sf::Time dt);
     void render();
+    void saveGameState();
+    void saveGame();
 
 public:
     Game();

@@ -44,3 +44,17 @@ void Brick::draw(sf::RenderTarget& window) {
 		window.draw(*this);
 	}
 }
+
+//Getter
+
+bool Brick::czyZniszczony() const {
+	return jestZniszczony;
+}
+
+sf::Vector2f Brick::getPosition() const {
+	return sf::RectangleShape::getPosition();
+}
+
+int Brick::getHP() const {
+	return punktyZycia;
+}
