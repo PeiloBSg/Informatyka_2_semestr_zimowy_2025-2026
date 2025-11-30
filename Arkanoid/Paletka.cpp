@@ -35,11 +35,6 @@ void Paddle::draw(sf::RenderTarget& target) {
 	target.draw(shape);
 }
 
-void Paddle::setPosition(float x, float y) {
-	Pozycja.x = x;
-	Pozycja.y = y;
-}
-
 void Paddle::setPosition(const sf::Vector2f& position) {
 	Pozycja = position;
 }

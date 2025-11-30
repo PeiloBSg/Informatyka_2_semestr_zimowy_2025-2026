@@ -29,6 +29,7 @@ private:
     void render();
     void saveGameState();
     void saveGame();
+    void loadGame();
 
 public:
     Game();

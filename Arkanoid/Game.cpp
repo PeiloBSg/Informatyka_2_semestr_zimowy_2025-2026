@@ -88,6 +88,37 @@ void Game::saveGame() {
     }
 }
 
+void Game::loadGame() {
+    GameSnapshot snapshot;
+    if (snapshot.loadFromFile("zapis.txt")) {
+        // Ustaw pozycjê paletki
+        paletka.setPosition(snapshot.getPaddlePosition());
+
+        // Ustaw pozycjê i prêdkoœæ pi³ki
+        pilka.setPosition(snapshot.getBallPosition());
+        pilka.setVelocity(snapshot.getBallVelocity());
+
+        // Odtwórz bloki
+        bloki.clear();
+        const float ROZMIAR_BLOKU_X = (640.f - (12 - 1) * 2.f) / 12;
+        const float ROZMIAR_BLOKU_Y = 20.f;
+
+        for (const auto& blockData : snapshot.getBlocks()) {
+            bloki.emplace_back(
+                sf::Vector2f(blockData.x, blockData.y),
+                sf::Vector2f(ROZMIAR_BLOKU_X, ROZMIAR_BLOKU_Y),
+                blockData.hp
+            );
+        }
+
+        currentState = GameState::Playing;
+        std::cout << "Gra wczytana!" << std::endl;
+    }
+    else {
+        std::cout << "Blad wczytywania gry! Plik nie istnieje." << std::endl;
+    }
+}
+
 void Game::processEvents() {
     sf::Event event;
     while (window.pollEvent(event)) {
@@ -125,7 +156,7 @@ void Game::processEvents() {
                         std::cout << "Uruchamiam gre..." << std::endl;
                         break;
                     case 1: // Wczytaj Gre
-                        resetGame();
+                        loadGame();
                         currentState = GameState::Playing;
                         std::cout << "Wczytuje..." << std::endl;
                         break;

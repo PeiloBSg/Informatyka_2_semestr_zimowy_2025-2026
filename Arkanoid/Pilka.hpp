@@ -18,6 +18,8 @@ public:
 	void bounceY();
 	void collideWalls(float width, float height);
 	void draw(sf::RenderTarget& target);
+	void setPosition(const sf::Vector2f& position);
+	void setVelocity(const sf::Vector2f& velocity);
 
 
 	//Gettery

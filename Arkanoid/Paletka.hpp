@@ -18,7 +18,6 @@ public:
 	void moveRight();
 	void clampToBounds(float width);
 	void draw(sf::RenderTarget& target);
-	void setPosition(float x, float y);
 	void setPosition(const sf::Vector2f& position);
 
 	//Gettery

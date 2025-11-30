@@ -40,6 +40,14 @@ void Ball::draw(sf::RenderTarget& target) {
 	target.draw(shape);
 }
 
+void Ball::setPosition(const sf::Vector2f& position) {
+	Pozycja = position;
+}
+
+void Ball::setVelocity(const sf::Vector2f& velocity) {
+	VV = velocity;
+}
+
 
 //Gettery
 sf::Vector2f Ball::getPosition() const { 

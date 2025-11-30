@@ -22,13 +22,13 @@ private:
 public:
     GameSnapshot(const Paddle& paddle, const Ball& ball, const std::vector<Brick>& bricks);
     GameSnapshot() = default; // Domyœlny konstruktor dla wczytywania
-    
+
     // Gettery
     sf::Vector2f getPaddlePosition() const;
     sf::Vector2f getBallPosition() const;
     sf::Vector2f getBallVelocity() const;
     const std::vector<BlockData>& getBlocks() const;
-    
+
     // Metody zapisu i odczytu
     bool saveToFile(const std::string& filename) const;
     bool loadFromFile(const std::string& filename);
