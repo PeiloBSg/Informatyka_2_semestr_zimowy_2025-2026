@@ -1,0 +1,30 @@
+﻿  Arkanoid.cpp
+C:\Users\progu\Desktop\PoliBuda\3 semestr\Informatyka\Informatyka_2_semestr_zimowy_2025-2026\Arkanoid\Game.hpp(2,10): error C1083: Nie można otworzyć pliku dołącz: 'SFML/Graphics.hpp': No such file or directory
+  Cegla.cpp
+  (kompilowanie pliku źródłowego „Arkanoid.cpp”)
+  
+C:\Users\progu\Desktop\PoliBuda\3 semestr\Informatyka\Informatyka_2_semestr_zimowy_2025-2026\Arkanoid\Cegla.hpp(2,10): error C1083: Nie można otworzyć pliku dołącz: 'SFML/Graphics.hpp': No such file or directory
+  (kompilowanie pliku źródłowego „Cegla.cpp”)
+  
+  Game.cpp
+C:\Users\progu\Desktop\PoliBuda\3 semestr\Informatyka\Informatyka_2_semestr_zimowy_2025-2026\Arkanoid\Game.hpp(2,10): error C1083: Nie można otworzyć pliku dołącz: 'SFML/Graphics.hpp': No such file or directory
+  (kompilowanie pliku źródłowego „Game.cpp”)
+  
+  GameSnapshot.cpp
+C:\Users\progu\Desktop\PoliBuda\3 semestr\Informatyka\Informatyka_2_semestr_zimowy_2025-2026\Arkanoid\GameSnapshot.hpp(2,10): error C1083: Nie można otworzyć pliku dołącz: 'SFML/System/Vector2.hpp': No such file or directory
+  (kompilowanie pliku źródłowego „GameSnapshot.cpp”)
+  
+  Menu.cpp
+C:\Users\progu\Desktop\PoliBuda\3 semestr\Informatyka\Informatyka_2_semestr_zimowy_2025-2026\Arkanoid\Menu.hpp(2,10): error C1083: Nie można otworzyć pliku dołącz: 'SFML/Graphics.hpp': No such file or directory
+  (kompilowanie pliku źródłowego „Menu.cpp”)
+  
+  Paletka.cpp
+C:\Users\progu\Desktop\PoliBuda\3 semestr\Informatyka\Informatyka_2_semestr_zimowy_2025-2026\Arkanoid\Paletka.hpp(2,10): error C1083: Nie można otworzyć pliku dołącz: 'SFML/Graphics.hpp': No such file or directory
+  (kompilowanie pliku źródłowego „Paletka.cpp”)
+  
+  Pilka.cpp
+C:\Users\progu\Desktop\PoliBuda\3 semestr\Informatyka\Informatyka_2_semestr_zimowy_2025-2026\Arkanoid\Pilka.hpp(2,10): error C1083: Nie można otworzyć pliku dołącz: 'SFML/Graphics.hpp': No such file or directory
+  (kompilowanie pliku źródłowego „Pilka.cpp”)
+  
+  ScoresManager.cpp
+  Generowanie kodu...
