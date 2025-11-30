@@ -7,11 +7,18 @@ Game::Game()
     , pilka(640.f / 2.f, 200.f, 4.f, 3.f, 8.f)
     , menu(window.getSize().x, window.getSize().y)
     , currentState(GameState::Menu)
+    , currentScore(0)
+    , Name("Pawel")
 {
     float szerokoscOkna = 640.f;
     float wysokoscOkna = 480.f;
 
     window.setFramerateLimit(60);
+
+    // £adowanie czcionki
+    if (!font.loadFromFile("arial.ttf")) {
+        std::cout << "Blad ladowania czcionki!" << std::endl;
+    }
 
     // Tworzenie bloków
     const int ILOSC_KOLUMN = 12;
@@ -33,6 +40,7 @@ Game::Game()
 void Game::resetGame() {
     paletka = Paddle(640.f / 2.f, 480.f - 30.f, 100.f, 20.f, 8.f);
     pilka = Ball(640.f / 2.f, 200.f, 4.f, 3.f, 8.f);
+    currentScore = 0;
 
     bloki.clear();
 
@@ -111,6 +119,7 @@ void Game::loadGame() {
             );
         }
 
+        currentScore = 0;
         currentState = GameState::Playing;
         std::cout << "Gra wczytana!" << std::endl;
     }
@@ -128,6 +137,7 @@ void Game::processEvents() {
         if (event.type == sf::Event::KeyPressed) {
             // Obs³uga ESC - powrót do menu z gry
             if (event.key.code == sf::Keyboard::Escape && currentState == GameState::Playing) {
+                currentScore = 0;
                 currentState = GameState::Menu;
             }
 
@@ -228,6 +238,10 @@ void Game::update(sf::Time dt) {
             if (brickBounds.intersects(ballBounds)) {
                 blk.trafienie();
 
+                //Punktowanie
+                int pointsEarned = (blk.getHP() + 1) * 10; // Wiêcej punktów za mocniejsze bloki
+                currentScore += pointsEarned;
+
                 // Sprawdzenie kierunku kolizji
                 float overlapLeft = ballBounds.left + ballBounds.width - brickBounds.left;
                 float overlapRight = brickBounds.left + brickBounds.width - ballBounds.left;
@@ -255,8 +269,72 @@ void Game::update(sf::Time dt) {
     // Sprawdzanie czy pi³ka wypad³a
     if (ballPos.y - pilka.getRadius() > 480.f) {
         std::cout << "KONIEC GRY!" << std::endl;
+        
+        // ZAPISZ WYNIK PRZED POWROTEM DO MENU
+        scoresManager.addScore(Name, currentScore);
+        currentScore = 0; // Resetuj wynik
         currentState = GameState::Menu; // Powrót do menu po przegranej
     }
+}
+
+void Game::renderScoresScreen() {
+    // Tytu³
+    sf::Text title;
+    title.setFont(font);
+    title.setString("OSTATNIE WYNIKI");
+    title.setCharacterSize(32);
+    title.setFillColor(sf::Color::Yellow);
+    title.setPosition(220, 30);
+    window.draw(title);
+
+    // Lista wyników
+    const auto& scores = scoresManager.getScores();
+    if (scores.empty()) {
+        sf::Text noScores;
+        noScores.setFont(font);
+        noScores.setString("Brak zapisanych wynikow");
+        noScores.setCharacterSize(24);
+        noScores.setFillColor(sf::Color::White);
+        noScores.setPosition(200, 200);
+        window.draw(noScores);
+    }
+    else {
+        // Wyniki
+        for (size_t i = 0; i < scores.size() && i < 10; ++i) {
+            std::string scoreLine =
+                std::to_string(i + 1) + ". " +
+                scores[i].playerName + " - " +
+                std::to_string(scores[i].score) + " - " +
+                scoresManager.formatDate(scores[i].timestamp);
+
+            sf::Text scoreText;
+            scoreText.setFont(font);
+            scoreText.setString(scoreLine);
+            scoreText.setCharacterSize(18);
+            scoreText.setFillColor(sf::Color::White);
+            scoreText.setPosition(100, 100 + i * 30);
+            window.draw(scoreText);
+        }
+    }
+
+    // Instrukcja powrotu
+    sf::Text instruction;
+    instruction.setFont(font);
+    instruction.setString("Nacisnij ESC aby wrocic do menu");
+    instruction.setCharacterSize(18);
+    instruction.setFillColor(sf::Color::Cyan);
+    instruction.setPosition(180, 400);
+    window.draw(instruction);
+}
+
+void Game::renderScore() {
+    sf::Text scoreText;
+    scoreText.setFont(font);
+    scoreText.setString("Wynik: " + std::to_string(currentScore));
+    scoreText.setCharacterSize(20);
+    scoreText.setFillColor(sf::Color::White);
+    scoreText.setPosition(10, 10);
+    window.draw(scoreText);
 }
 
 void Game::render() {
@@ -273,21 +351,10 @@ void Game::render() {
         for (auto& blk : bloki) {
             blk.draw(window);
         }
+        renderScore();
         break;
     case GameState::Scores:
-        // Tymczasowe renderowanie ekranu wyników
-    {
-        sf::Font font;
-        if (font.loadFromFile("arial.ttf")) {
-            sf::Text text;
-            text.setFont(font);
-            text.setString("Ekran wynikow - Nacisnij ESC aby wrocic do menu");
-            text.setCharacterSize(24);
-            text.setFillColor(sf::Color::White);
-            text.setPosition(100, 300);
-            window.draw(text);
-        }
-    }
+        renderScoresScreen();
     break;
     case GameState::Exiting:
         window.close();

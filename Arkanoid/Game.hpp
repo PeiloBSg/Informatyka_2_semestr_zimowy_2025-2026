@@ -7,6 +7,7 @@
 #include "Menu.hpp"
 #include "StanGry.hpp"
 #include "GameSnapshot.hpp"
+#include "ScoresManager.hpp"
 
 class Game {
 private:
@@ -19,6 +20,10 @@ private:
     Menu menu;
     GameState currentState;
     GameSnapshot* currentGameSnapshot;
+    ScoresManager scoresManager;
+    int currentScore;
+    sf::Font font;
+    std::string Name;
 
     //Metody
     void resetGame();
@@ -27,6 +32,8 @@ private:
     void controlBall();
     void update(sf::Time dt);
     void render();
+    void renderScore();
+    void renderScoresScreen();
     void saveGameState();
     void saveGame();
     void loadGame();
