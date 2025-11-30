@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <vector>
 #include <string>
 #include <algorithm>
@@ -7,10 +7,10 @@
 struct HighScore {
     std::string playerName;
     int score;
-    std::time_t timestamp; 
+    std::time_t timestamp;
 
     bool operator<(const HighScore& other) const {
-        return timestamp > other.timestamp; 
+        return timestamp > other.timestamp;
     }
 };
 
@@ -26,5 +26,5 @@ public:
     void addScore(const std::string& name, int score);
     const std::vector<HighScore>& getScores() const;
     void clearScores();
-    std::string formatDate(std::time_t timestamp) const;  
+    std::string formatDate(std::time_t timestamp) const;
 };
