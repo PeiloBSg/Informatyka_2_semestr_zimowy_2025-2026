@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\progu\\Desktop\\PoliBuda\\3 semestr\\Informatyka\\Informatyka_2_semestr_zimowy_2025-2026\\Arkanoid\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{B468FE86-0C97-4AA9-BA91-FE80F6DA9B23}|Arkanoid.vcxproj|C:\\Users\\progu\\Desktop\\PoliBuda\\3 semestr\\Informatyka\\Informatyka_2_semestr_zimowy_2025-2026\\Arkanoid\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B468FE86-0C97-4AA9-BA91-FE80F6DA9B23}|Arkanoid.vcxproj|solutionrelative:Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B468FE86-0C97-4AA9-BA91-FE80F6DA9B23}|Arkanoid.vcxproj|C:\\Users\\progu\\Desktop\\PoliBuda\\3 semestr\\Informatyka\\Informatyka_2_semestr_zimowy_2025-2026\\Arkanoid\\Game.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B468FE86-0C97-4AA9-BA91-FE80F6DA9B23}|Arkanoid.vcxproj|solutionrelative:Game.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B468FE86-0C97-4AA9-BA91-FE80F6DA9B23}|Arkanoid.vcxproj|C:\\Users\\progu\\Desktop\\PoliBuda\\3 semestr\\Informatyka\\Informatyka_2_semestr_zimowy_2025-2026\\Arkanoid\\ScoresManager.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{B468FE86-0C97-4AA9-BA91-FE80F6DA9B23}|Arkanoid.vcxproj|solutionrelative:ScoresManager.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -11,20 +19,12 @@
       "RelativeMoniker": "D:0:0:{B468FE86-0C97-4AA9-BA91-FE80F6DA9B23}|Arkanoid.vcxproj|solutionrelative:GameSnapshot.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B468FE86-0C97-4AA9-BA91-FE80F6DA9B23}|Arkanoid.vcxproj|C:\\Users\\progu\\Desktop\\PoliBuda\\3 semestr\\Informatyka\\Informatyka_2_semestr_zimowy_2025-2026\\Arkanoid\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B468FE86-0C97-4AA9-BA91-FE80F6DA9B23}|Arkanoid.vcxproj|solutionrelative:Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B468FE86-0C97-4AA9-BA91-FE80F6DA9B23}|Arkanoid.vcxproj|C:\\Users\\progu\\Desktop\\PoliBuda\\3 semestr\\Informatyka\\Informatyka_2_semestr_zimowy_2025-2026\\Arkanoid\\ScoresManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{B468FE86-0C97-4AA9-BA91-FE80F6DA9B23}|Arkanoid.vcxproj|solutionrelative:ScoresManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B468FE86-0C97-4AA9-BA91-FE80F6DA9B23}|Arkanoid.vcxproj|C:\\Users\\progu\\Desktop\\PoliBuda\\3 semestr\\Informatyka\\Informatyka_2_semestr_zimowy_2025-2026\\Arkanoid\\GameSnapshot.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{B468FE86-0C97-4AA9-BA91-FE80F6DA9B23}|Arkanoid.vcxproj|solutionrelative:GameSnapshot.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B468FE86-0C97-4AA9-BA91-FE80F6DA9B23}|Arkanoid.vcxproj|C:\\Users\\progu\\Desktop\\PoliBuda\\3 semestr\\Informatyka\\Informatyka_2_semestr_zimowy_2025-2026\\Arkanoid\\Game.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B468FE86-0C97-4AA9-BA91-FE80F6DA9B23}|Arkanoid.vcxproj|solutionrelative:Game.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B468FE86-0C97-4AA9-BA91-FE80F6DA9B23}|Arkanoid.vcxproj|C:\\Users\\progu\\Desktop\\PoliBuda\\3 semestr\\Informatyka\\Informatyka_2_semestr_zimowy_2025-2026\\Arkanoid\\StanGry.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -38,11 +38,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "ScoresManager.cpp",
               "DocumentMoniker": "C:\\Users\\progu\\Desktop\\PoliBuda\\3 semestr\\Informatyka\\Informatyka_2_semestr_zimowy_2025-2026\\Arkanoid\\ScoresManager.cpp",
               "RelativeDocumentMoniker": "ScoresManager.cpp",
@@ -54,7 +54,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "ScoresManager.hpp",
               "DocumentMoniker": "C:\\Users\\progu\\Desktop\\PoliBuda\\3 semestr\\Informatyka\\Informatyka_2_semestr_zimowy_2025-2026\\Arkanoid\\ScoresManager.hpp",
               "RelativeDocumentMoniker": "ScoresManager.hpp",
@@ -67,7 +67,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "GameSnapshot.cpp",
               "DocumentMoniker": "C:\\Users\\progu\\Desktop\\PoliBuda\\3 semestr\\Informatyka\\Informatyka_2_semestr_zimowy_2025-2026\\Arkanoid\\GameSnapshot.cpp",
               "RelativeDocumentMoniker": "GameSnapshot.cpp",
@@ -75,12 +75,11 @@
               "RelativeToolTip": "GameSnapshot.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAGsAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-11-24T14:57:04.482Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-24T14:57:04.482Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "GameSnapshot.hpp",
               "DocumentMoniker": "C:\\Users\\progu\\Desktop\\PoliBuda\\3 semestr\\Informatyka\\Informatyka_2_semestr_zimowy_2025-2026\\Arkanoid\\GameSnapshot.hpp",
               "RelativeDocumentMoniker": "GameSnapshot.hpp",
@@ -92,7 +91,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "Game.hpp",
               "DocumentMoniker": "C:\\Users\\progu\\Desktop\\PoliBuda\\3 semestr\\Informatyka\\Informatyka_2_semestr_zimowy_2025-2026\\Arkanoid\\Game.hpp",
               "RelativeDocumentMoniker": "Game.hpp",
@@ -100,17 +99,18 @@
               "RelativeToolTip": "Game.hpp",
               "ViewState": "AgIAABIAAAAAAAAAAAAAACIAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-11-18T20:24:13.706Z"
+              "WhenOpened": "2025-11-18T20:24:13.706Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Game.cpp",
               "DocumentMoniker": "C:\\Users\\progu\\Desktop\\PoliBuda\\3 semestr\\Informatyka\\Informatyka_2_semestr_zimowy_2025-2026\\Arkanoid\\Game.cpp",
               "RelativeDocumentMoniker": "Game.cpp",
               "ToolTip": "C:\\Users\\progu\\Desktop\\PoliBuda\\3 semestr\\Informatyka\\Informatyka_2_semestr_zimowy_2025-2026\\Arkanoid\\Game.cpp",
               "RelativeToolTip": "Game.cpp",
-              "ViewState": "AgIAANcAAAAAAAAAAAAAAOEAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHEBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-11-18T20:24:33.038Z",
               "EditorCaption": ""
