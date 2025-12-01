@@ -1,5 +1,6 @@
 ## Autor
 - Paweł Rogula
+- Politechnika Gdańska
 - Nr indeksu: 203988 
 - Projekt: Gra Arkanoid
 
