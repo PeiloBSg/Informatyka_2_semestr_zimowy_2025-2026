@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 Pawel 10 1764534637
+=======
+>>>>>>> parent of 9a4393e (Niepotrzebne pliki)
 Pawel 20 1764529410
 Pawel 10 1764529292
 Pawel 20 1764529154

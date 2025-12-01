@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 PADDLE 438 450
 BALL 496 188 4 -3
 BLOCKS_COUNT 42
+=======
+PADDLE 590 450
+BALL 580 203 4 3
+BLOCKS_COUNT 46
+>>>>>>> parent of 9a4393e (Niepotrzebne pliki)
 0 60 3
 53.5 60 3
 107 60 3
@@ -42,4 +48,9 @@ BLOCKS_COUNT 42
 160.5 126 1
 321 126 1
 374.5 126 1
+<<<<<<< HEAD
+=======
+428 126 1
+535 126 1
+>>>>>>> parent of 9a4393e (Niepotrzebne pliki)
 588.5 126 1
