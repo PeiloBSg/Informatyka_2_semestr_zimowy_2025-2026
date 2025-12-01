@@ -1,7 +1,7 @@
 ## Autor
-Paweł Rogula
-Nr indeksu: 203988 
-Projekt: Gra Arkanoid
+- Paweł Rogula
+- Nr indeksu: 203988 
+- Projekt: Gra Arkanoid
 
 ## Opis
 Klasyczna gra Arkanoid zbudowana w C++ z użyciem biblioteki SFML. Gra zawiera system zapisywania stanu gry, tabelę wyników oraz różne poziomy życia bloków.
