@@ -48,6 +48,73 @@ void Ball::setVelocity(const sf::Vector2f& velocity) {
 	VV = velocity;
 }
 
+void Ball::controlBall() {
+	move();
+	collideWalls(640.f, 480.f);
+}
+
+void Ball::collidePaddle(const Paddle& paddle) {
+	sf::Vector2f paddlePos = paddle.getPosition();
+	float paddleWidth = paddle.getWidth();
+	float paddleHeight = paddle.getHeight();
+
+	// Sprawdzenie kolizji
+	if (Pozycja.x + r >= paddlePos.x - paddleWidth / 2.f &&
+		Pozycja.x - r <= paddlePos.x + paddleWidth / 2.f &&
+		Pozycja.y + r >= paddlePos.y - paddleHeight / 2.f) {
+
+		// Upewnij siê, ¿e pi³ka jest nad paletk¹
+		if (Pozycja.y < paddlePos.y) {
+			bounceY();
+		}
+	}
+}
+
+int Ball::collideBricks(std::vector<Brick>& bricks) {
+	int pointsEarned = 0;
+	sf::Vector2f ballPos = Pozycja;
+
+	for (auto& brick : bricks) {
+		if (!brick.czyZniszczony()) {
+			sf::FloatRect brickBounds = brick.getGlobalBounds();
+			sf::FloatRect ballBounds(ballPos.x - r,
+				ballPos.y - r,
+				r * 2,
+				r * 2);
+
+			if (brickBounds.intersects(ballBounds)) {
+				brick.trafienie();
+
+				// Punkty za zniszczenie bloku
+				int brickPoints = (brick.getHP() + 1) * 10;
+				pointsEarned += brickPoints;
+
+				// Sprawdzenie kierunku kolizji
+				float overlapLeft = ballBounds.left + ballBounds.width - brickBounds.left;
+				float overlapRight = brickBounds.left + brickBounds.width - ballBounds.left;
+				float overlapTop = ballBounds.top + ballBounds.height - brickBounds.top;
+				float overlapBottom = brickBounds.top + brickBounds.height - ballBounds.top;
+
+				bool fromLeft = overlapLeft < overlapRight;
+				bool fromTop = overlapTop < overlapBottom;
+
+				float minOverlapX = fromLeft ? overlapLeft : overlapRight;
+				float minOverlapY = fromTop ? overlapTop : overlapBottom;
+
+				if (minOverlapX < minOverlapY) {
+					bounceX();
+				}
+				else {
+					bounceY();
+				}
+
+				break; // Po kolizji z jednym blokiem przerywamy
+			}
+		}
+	}
+
+	return pointsEarned;
+}
 
 //Gettery
 sf::Vector2f Ball::getPosition() const { 

@@ -8,6 +8,10 @@ ScoresManager::ScoresManager() {
     loadScores();
 }
 
+void ScoresManager::setFont(sf::Font& font) {
+    this->font = &font;
+}
+
 void ScoresManager::loadScores() {
     highScores.clear();
     std::ifstream file("scores.txt");
@@ -76,4 +80,67 @@ std::string ScoresManager::formatDate(std::time_t timestamp) const {
     char buffer[20];
     std::strftime(buffer, sizeof(buffer), "%Y-%m-%d %H:%M", &timeInfo);
     return std::string(buffer);
+}
+
+void ScoresManager::renderScoresScreen(sf::RenderWindow& window) {
+    if (!font) return;  // Jeœli nie ma czcionki, nie renderuj
+
+    // Tytu³
+    sf::Text title;
+    title.setFont(*font);
+    title.setString("OSTATNIE WYNIKI");
+    title.setCharacterSize(32);
+    title.setFillColor(sf::Color::Yellow);
+    title.setPosition(220, 30);
+    window.draw(title);
+
+    // Lista wyników
+    if (highScores.empty()) {
+        sf::Text noScores;
+        noScores.setFont(*font);
+        noScores.setString("Brak zapisanych wynikow");
+        noScores.setCharacterSize(24);
+        noScores.setFillColor(sf::Color::White);
+        noScores.setPosition(200, 200);
+        window.draw(noScores);
+    }
+    else {
+        // Wyniki
+        for (size_t i = 0; i < highScores.size() && i < 10; ++i) {
+            std::string scoreLine =
+                std::to_string(i + 1) + ". " +
+                highScores[i].playerName + " - " +
+                std::to_string(highScores[i].score) + " - " +
+                formatDate(highScores[i].timestamp);
+
+            sf::Text scoreText;
+            scoreText.setFont(*font);
+            scoreText.setString(scoreLine);
+            scoreText.setCharacterSize(18);
+            scoreText.setFillColor(sf::Color::White);
+            scoreText.setPosition(100, 100 + i * 30);
+            window.draw(scoreText);
+        }
+    }
+
+    // Instrukcja powrotu
+    sf::Text instruction;
+    instruction.setFont(*font);
+    instruction.setString("Nacisnij ESC aby wrocic do menu");
+    instruction.setCharacterSize(18);
+    instruction.setFillColor(sf::Color::Cyan);
+    instruction.setPosition(180, 400);
+    window.draw(instruction);
+}
+
+void ScoresManager::renderCurrentScore(sf::RenderWindow& window, int currentScore) {
+    if (!font) return;  // Jeœli nie ma czcionki, nie renderuj
+
+    sf::Text scoreText;
+    scoreText.setFont(*font);
+    scoreText.setString("Wynik: " + std::to_string(currentScore));
+    scoreText.setCharacterSize(20);
+    scoreText.setFillColor(sf::Color::White);
+    scoreText.setPosition(10, 10);
+    window.draw(scoreText);
 }

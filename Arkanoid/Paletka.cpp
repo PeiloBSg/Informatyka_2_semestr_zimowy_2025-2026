@@ -39,6 +39,16 @@ void Paddle::setPosition(const sf::Vector2f& position) {
 	Pozycja = position;
 }
 
+void Paddle::controlPaddle() {
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+		moveLeft();
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+		moveRight();
+
+	clampToBounds(640.f);
+}
+
+
 //Gettery
 sf::Vector2f Paddle::getPosition() const{
 	return Pozycja;

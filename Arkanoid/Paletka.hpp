@@ -19,6 +19,7 @@ public:
 	void clampToBounds(float width);
 	void draw(sf::RenderTarget& target);
 	void setPosition(const sf::Vector2f& position);
+	void controlPaddle();		//Sterowanie paletk¹
 
 	//Gettery
 	sf::Vector2f getPosition() const;

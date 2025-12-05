@@ -1,6 +1,8 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include "Paletka.hpp"
+#include "Cegla.hpp"
 
 class Ball {
 private:
@@ -20,7 +22,9 @@ public:
 	void draw(sf::RenderTarget& target);
 	void setPosition(const sf::Vector2f& position);
 	void setVelocity(const sf::Vector2f& velocity);
-
+	void controlBall();								//Sterowanie Pilk¹
+	void collidePaddle(const Paddle& paddle);		//Kolizja Pilka-Palekta
+	int collideBricks(std::vector<Brick>& bricks);	//Kolizja Pilka-Cegly, zwraca iloœæ zdobytych punktów
 
 	//Gettery
 	sf::Vector2f getPosition() const;

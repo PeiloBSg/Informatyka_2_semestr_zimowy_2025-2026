@@ -28,13 +28,8 @@ private:
     //Metody
     void resetGame();
     void processEvents();
-    void controlPaddle();
-    void controlBall();
     void update(sf::Time dt);
     void render();
-    void renderScore();
-    void renderScoresScreen();
-    void saveGameState();
     void saveGame();
     void loadGame();
 
