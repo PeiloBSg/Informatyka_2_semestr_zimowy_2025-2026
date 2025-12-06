@@ -30,6 +30,8 @@ public:
     const std::vector<BlockData>& getBlocks() const;
 
     // Metody zapisu i odczytu
-    bool saveToFile(const std::string& filename) const;
-    bool loadFromFile(const std::string& filename);
+    bool saveToFile(const std::string& filename) const;     // Zapisuje do pliku 
+    bool loadFromFile(const std::string& filename);         // Odczytuje z pliku
+    void saveGame(const Paddle& paddle, const Ball& ball, const std::vector<Brick>& bricks, const std::string& filename = "zapis.txt");
+    void loadGame(Paddle& paddle, Ball& ball, std::vector<Brick>& bricks, float blockWidth, float blockHeight, const std::string& filename = "zapis.txt");
 };

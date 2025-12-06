@@ -23,14 +23,14 @@ private:
 
 public:
     ScoresManager();
-    void setFont(sf::Font& font); //Setter czcionki
+    void setFont(sf::Font& font); // Setter czcionki
     void loadScores();
     void saveScores();
     void addScore(const std::string& name, int score);
     const std::vector<HighScore>& getScores() const;
     void clearScores();
     std::string formatDate(std::time_t timestamp) const;
-    void renderScoresScreen(sf::RenderWindow& window);      //Renderuje okno z wynikami
-    void renderCurrentScore(sf::RenderWindow& window, int currentScore);        //Wyœwietla aktualny wynik na ekranie
+    void renderScoresScreen(sf::RenderWindow& window);      // Renderuje okno z wynikami
+    void renderCurrentScore(sf::RenderWindow& window, int currentScore);        // Wyœwietla aktualny wynik na ekranie
 
 };

@@ -28,7 +28,6 @@ Menu::Menu(float width, float height)
 }
 
 //Metody
-//rysowanie menu w biezacym oknie
 void Menu::draw(sf::RenderWindow& window)
 {
 	for (int i = 0; i < MAX_LICZBA_POZIOMOW; i++)
@@ -83,5 +82,19 @@ void Menu::myDelay(int opoznienie)
 			break;
 		}
 
+	}
+}
+
+void Menu::handleMenuKeys(const sf::Event& event) {
+	if (event.type == sf::Event::KeyPressed) {
+		if (event.key.code == sf::Keyboard::Up) {
+			myDelay(250);
+			przesunG();
+		}
+
+		if (event.key.code == sf::Keyboard::Down) {
+			myDelay(250);
+			przesunD();
+		}
 	}
 }

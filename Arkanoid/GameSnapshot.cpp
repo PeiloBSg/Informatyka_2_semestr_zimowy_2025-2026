@@ -111,3 +111,34 @@ bool GameSnapshot::loadFromFile(const std::string& filename) {
     file.close();
     return true;
 }
+
+void GameSnapshot::saveGame(const Paddle& paddle, const Ball& ball, const std::vector<Brick>& bricks, const std::string& filename) {
+    if (GameSnapshot(paddle, ball, bricks).saveToFile(filename)) {
+        std::cout << "Gra zapisana!" << std::endl;
+    }
+    else {
+        std::cout << "Blad zapisu gry!" << std::endl;
+    }
+}
+
+void GameSnapshot::loadGame(Paddle& paddle, Ball& ball, std::vector<Brick>& bricks,
+                            float blockWidth, float blockHeight,
+                            const std::string& filename) {
+    if (loadFromFile(filename)) {
+        paddle.setPosition(getPaddlePosition());
+        ball.setPosition(getBallPosition());
+        ball.setVelocity(getBallVelocity());
+        bricks.clear();
+        for (const auto& blockData : getBlocks()) {
+            bricks.emplace_back(
+                sf::Vector2f(blockData.x, blockData.y),
+                sf::Vector2f(blockWidth, blockHeight),
+                blockData.hp
+            );
+        }
+        std::cout << "Gra wczytana!" << std::endl;
+    }
+    else {
+        std::cout << "Blad wczytywania gry! Plik nie istnieje." << std::endl;
+    }
+}

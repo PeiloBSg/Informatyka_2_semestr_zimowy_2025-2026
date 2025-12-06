@@ -69,7 +69,7 @@ std::string ScoresManager::formatDate(std::time_t timestamp) const {
     // BEZPIECZNA WERSJA z localtime_s
     std::tm timeInfo = {};
 
-#ifdef _WIN32
+#ifdef _WIN64
     // Dla Windows u¿ywamy localtime_s
     localtime_s(&timeInfo, &timestamp);
 #else

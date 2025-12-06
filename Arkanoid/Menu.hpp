@@ -8,17 +8,18 @@ class Menu
 {
 private:
 	sf::Font font;
-	sf::Text menu[MAX_LICZBA_POZIOMOW];//maksymalna liczba poziomow
+	sf::Text menu[MAX_LICZBA_POZIOMOW];		// Maksymalna liczba poziomow (czyli wierszy tekstu w menu)
 	int selectedItem = 0;
 
 public:
 	Menu(float width, float height);
-	//~Menu() {};
 
 	//Metody
-	void przesunG();//przesun do gory
-	void przesunD();//przesun w dol
-	int getSelectedItem() { return selectedItem; }//zwroc poziom menu
-	void draw(sf::RenderWindow &window);//rysuj menu w oknie
+	void przesunG();		// Przesun do gory
+	void przesunD();		// Przesun w dol
+	int getSelectedItem() { return selectedItem; }		// Zwroc poziom menu
+	void draw(sf::RenderWindow &window);				// Rysuj menu w oknie
 	void myDelay(int opoznienie);
+	void handleMenuKeys(const sf::Event& event);		// Sterowanie w menu
+
 };
