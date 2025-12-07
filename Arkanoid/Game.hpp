@@ -24,35 +24,41 @@ private:
     const float BALL_SPEED_X = 4.f;         // Szybkoœæ x pi³ki
     const float BALL_SPEED_Y = 3.f;         // Szybkoœæ y pi³ki
     const int BLOCKS_COLUMNS = 12;          // Iloœæ kolumn bloków
-    static constexpr int BLOCKS_ROWS = 4;   // Iloœæ wierszy bloków
+    static const int BLOCKS_ROWS = 4;       // Iloœæ wierszy bloków
     const float BLOCK_HEIGHT = 20.f;        // Wysokoœæ bloków
     const float BLOCK_WIDTH = (WINDOW_WIDTH - (BLOCKS_COLUMNS - 1) * 2.f) / BLOCKS_COLUMNS;     // Szerokoœæ bloków
+    const float PADDLE_INIT_Y_OFFSET = 30.f;    // Odleg³oœæ paletki od do³u ekranu
+    const float BALL_INIT_Y = 200.f;            // Y startowy pi³ki
+    const float BLOCK_SPACING = 2.f;            // Odstêp miêdzy blokami
+    const float BLOCK_OFFSET_Y = 60.f;          // Odleg³oœæ bloków od góry ekranu
 
-    sf::RenderWindow window;
-    Paddle paletka;
-    Ball pilka;
-    std::vector<Brick> bloki;
-    Menu menu;
-    GameSnapshot snapshot;
-    GameState currentState;
-    ScoresManager scoresManager;
-    int currentScore;
-    sf::Font font;
-    std::string Name;
+    sf::RenderWindow window;            // Obiekt okno
+    Paddle paletka;                     // Obiekt paletka
+    Ball pilka;                         // Obiekt pi³ka
+    std::vector<Brick> bloki;           // Obiekt bloki
+    Menu menu;                          // Obiekt menu
+    GameSnapshot snapshot;              // Obiekt snapshot
+    GameState currentState;             // Obiekt enum stanu gry
+    ScoresManager scoresManager;        // Obiekt zarz¹dznia wynikami
+    sf::Font font;                      // Czcionka
+    std::string Name;                   // Nick gracza
+    int currentScore;                   // Iloœæ punktów
 
     //Metody
-    void loadResources();       // £aduje czcionkê
-    void initBlocks();      // Usuwa, a nastêpnie tworzy nowe bloki
-    void resetGame();       // Resetuje grê
-    void processEvents();       //Przetwarza naciskanie przycisków
-    void update(sf::Time dt);       // Odpowiedzialna zaaktualizowanie gry w stanie playing
-    void render();          // Renderowanie
-    void handleGameOver();      // Sprawdza czy pi³ka wypad³a, lub czy gracz zniszczy³ wszystkie bloki
+    void loadResources();                               // £aduje czcionkê
+    void initBlocks();                                  // Usuwa, a nastêpnie tworzy nowe bloki
+    void resetGame();                                   // Resetuje grê
+    void returnToMenu();                                // Powrót do menu
+    void handleGameOver();                              // Sprawdza czy pi³ka wypad³a, lub czy gracz zniszczy³ wszystkie bloki
     void handleGlobalKeys(const sf::Event& event);      // Obs³uguje klawisze F5 oraz ESC
     void handleMenuInput(const sf::Event& event);       // W zale¿noœci jaki stan gry zosta³ wybrany, tworzy odpowiedni¹ akcjê
+    void processEvents();                               // Przetwarza naciskanie przycisków
+    void update(sf::Time dt);                           // Odpowiedzialna za aktualizowanie gry w stanie playing
+    void render();                                      // Renderowanie
 
 public:
     Game();
 
     void run();     // Po³¹czenie wszystkich metod
+
 };

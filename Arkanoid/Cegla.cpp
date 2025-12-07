@@ -1,6 +1,5 @@
 #include "Cegla.hpp"
 
-
 //Konstruktor
 Brick::Brick(sf::Vector2f startPo, sf::Vector2f rozmiar, int L) {
 	if (L > 3)
@@ -19,10 +18,10 @@ Brick::Brick(sf::Vector2f startPo, sf::Vector2f rozmiar, int L) {
 
 //Metody
 const std::array<sf::Color, 4> Brick::colorLUT = {
-	sf::Color::Transparent,
-	sf::Color::Red ,		//Yellow
-	sf::Color::Yellow,		//Magenta
-	sf::Color(118, 255, 112)		//Red
+	sf::Color::Transparent,			// Invisible
+	sf::Color::Red ,				// Red
+	sf::Color::Yellow,				// Yellow
+	sf::Color(118, 255, 112)		// Green
 };
 
 void Brick::trafienie() {
@@ -40,13 +39,12 @@ void Brick::aktualizujKolor() {
 }
 
 void Brick::draw(sf::RenderTarget& window) {
-	if (!jestZniszczony) {  //Rysuj tylko jeœli nie zniszczony
+	if (!jestZniszczony) {  // Rysuj tylko jeœli nie zniszczony
 		window.draw(*this);
 	}
 }
 
-//Getter
-
+//Gettey
 bool Brick::czyZniszczony() const {
 	return jestZniszczony;
 }

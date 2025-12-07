@@ -7,11 +7,9 @@
 GameSnapshot::GameSnapshot(const Paddle& paddle, const Ball& ball, const std::vector<Brick>& bricks) {
     // Przechwyæ pozycjê paletki
     paddlePosition = paddle.getPosition();
-
     // Przechwyæ pozycjê i prêdkoœæ pi³ki
     ballPosition = ball.getPosition();
     ballVelocity = ball.getVelocity();
-
     // Przechwyæ stan wszystkich bloków
     blocks.clear();
     for (const auto& brick : bricks) {
@@ -26,7 +24,7 @@ GameSnapshot::GameSnapshot(const Paddle& paddle, const Ball& ball, const std::ve
     }
 }
 
-// Gettery
+//Gettery
 sf::Vector2f GameSnapshot::getPaddlePosition() const {
     return paddlePosition;
 }
@@ -43,7 +41,7 @@ const std::vector<BlockData>& GameSnapshot::getBlocks() const {
     return blocks;
 }
 
-// Metoda zapisu do pliku
+//Metody
 bool GameSnapshot::saveToFile(const std::string& filename) const {
     std::ofstream file(filename);
     if (!file.is_open()) {
@@ -83,20 +81,17 @@ bool GameSnapshot::loadFromFile(const std::string& filename) {
         file.close();
         return false;
     }
-
     // 2. Wczytaj Pi³kê
     if (!(file >> label >> ballPosition.x >> ballPosition.y >> ballVelocity.x >> ballVelocity.y) || label != "BALL") {
         file.close();
         return false;
     }
-
     // 3. Wczytaj Bloki
     int blocksCount;
     if (!(file >> label >> blocksCount) || label != "BLOCKS_COUNT") {
         file.close();
         return false;
     }
-
     blocks.clear();
     for (int i = 0; i < blocksCount; ++i) {
         float x, y;
@@ -107,11 +102,34 @@ bool GameSnapshot::loadFromFile(const std::string& filename) {
         }
         blocks.push_back({ x, y, hp });
     }
-
     file.close();
     return true;
 }
 
+int GameSnapshot::calculateScore() const {
+    int remainingScore = 0;
+
+    for (const auto& block : blocks) {
+        // hp=3 -> 0 punktów
+        // hp=2 -> 30 punktów  
+        // hp=1 -> 50 punktów
+        // hp=0 -> 60 punktów
+
+        if (block.hp == 3) {
+            remainingScore += 60;
+        }
+        else if (block.hp == 2) {
+            remainingScore += 30;
+        }
+        else if (block.hp == 1) {
+            remainingScore += 10;  
+        }
+        else if (block.hp == 0) {
+            remainingScore += 0; 
+        }
+    }
+    return 1920 - remainingScore;
+}
 void GameSnapshot::saveGame(const Paddle& paddle, const Ball& ball, const std::vector<Brick>& bricks, const std::string& filename) {
     if (GameSnapshot(paddle, ball, bricks).saveToFile(filename)) {
         std::cout << "Gra zapisana!" << std::endl;
@@ -121,9 +139,7 @@ void GameSnapshot::saveGame(const Paddle& paddle, const Ball& ball, const std::v
     }
 }
 
-void GameSnapshot::loadGame(Paddle& paddle, Ball& ball, std::vector<Brick>& bricks,
-                            float blockWidth, float blockHeight,
-                            const std::string& filename) {
+int GameSnapshot::loadGame(Paddle& paddle, Ball& ball, std::vector<Brick>& bricks, float blockWidth, float blockHeight, const std::string& filename) {
     if (loadFromFile(filename)) {
         paddle.setPosition(getPaddlePosition());
         ball.setPosition(getBallPosition());
@@ -136,9 +152,12 @@ void GameSnapshot::loadGame(Paddle& paddle, Ball& ball, std::vector<Brick>& bric
                 blockData.hp
             );
         }
+        int loadedScore = calculateScore();
         std::cout << "Gra wczytana!" << std::endl;
+        return loadedScore;
     }
     else {
         std::cout << "Blad wczytywania gry! Plik nie istnieje." << std::endl;
+        return 0;
     }
 }
