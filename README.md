@@ -32,7 +32,8 @@ Wszystkie pliki znajdują się w folderze Arkanoid
 - `Game.hpp/cpp` - główna klasa gry
 - `Pilka.hpp/cpp` - logika piłki
 - `Paletka.hpp/cpp` - logika paletki
-- `Cegla.hpp/cpp` - logika bloków
+- `Cegla.hpp/cpp` - logika bloku
+- `Cegly.hpp/cpp` - tworzenie bloków
 - `Menu.hpp/cpp` - system menu
 - `GameSnapshot.hpp/cpp` - zapis/odczyt stanu gry
 - `ScoresManager.hpp/cpp` - zarządzanie wynikami
