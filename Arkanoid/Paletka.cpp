@@ -12,7 +12,7 @@ Paddle::Paddle(float sx, float sy, float sd, float sh, float sV) {
 	shape.setOrigin(d / 2, h / 2);
 	shape.setPosition(Pozycja.x, Pozycja.y);
 	shape.setFillColor(sf::Color(236, 73, 60));
-};
+}
 
 //Metody
 void Paddle::moveLeft() {

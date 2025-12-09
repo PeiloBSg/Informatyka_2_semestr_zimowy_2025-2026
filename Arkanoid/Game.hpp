@@ -6,6 +6,7 @@
 #include "Pilka.hpp"
 #include "Paletka.hpp"
 #include "Cegla.hpp"
+#include "Cegly.hpp"
 #include "Menu.hpp"
 #include "StanGry.hpp"
 #include "GameSnapshot.hpp"
@@ -35,7 +36,8 @@ private:
     sf::RenderWindow window;            // Obiekt okno
     Paddle paletka;                     // Obiekt paletka
     Ball pilka;                         // Obiekt pi³ka
-    std::vector<Brick> bloki;           // Obiekt bloki
+    std::vector<Brick> bloki;           // Obiekt blok
+    Bricks bricks;                      // Obiekt bloków
     Menu menu;                          // Obiekt menu
     GameSnapshot snapshot;              // Obiekt snapshot
     GameState currentState;             // Obiekt enum stanu gry
@@ -46,7 +48,6 @@ private:
 
     //Metody
     void loadResources();                               // £aduje czcionkê
-    void initBlocks();                                  // Usuwa, a nastêpnie tworzy nowe bloki
     void resetGame();                                   // Resetuje grê
     void returnToMenu();                                // Powrót do menu
     void handleGameOver();                              // Sprawdza czy pi³ka wypad³a, lub czy gracz zniszczy³ wszystkie bloki

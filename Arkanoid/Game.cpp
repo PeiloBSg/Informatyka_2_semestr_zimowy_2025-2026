@@ -5,6 +5,7 @@ Game::Game()
     : window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Arkanoid")
     , paletka(WINDOW_WIDTH / 2.f, WINDOW_HEIGHT - PADDLE_INIT_Y_OFFSET, PADDLE_WIDTH, PADDLE_HEIGHT, PADDLE_SPEED)
     , pilka(WINDOW_WIDTH / 2.f, BALL_INIT_Y, BALL_SPEED_X, BALL_SPEED_Y, BALL_RADIUS)
+    , bricks(BLOCK_WIDTH, BLOCK_HEIGHT, BLOCKS_ROWS, BLOCKS_COLUMNS, BLOCK_SPACING, BLOCK_OFFSET_Y)
     , menu(window.getSize().x, window.getSize().y)
     , currentState(GameState::Menu)
     , currentScore(0)
@@ -22,26 +23,11 @@ void Game::loadResources() {
     scoresManager.setFont(font);
 }
 
-void Game::initBlocks() {
-    bloki.clear();
-    int hpPerRow[BLOCKS_ROWS] = { 3, 3, 2, 1 };
-
-    for (int y = 0; y < BLOCKS_ROWS; y++) {
-        for (int x = 0; x < BLOCKS_COLUMNS; x++) {
-            float posX = x * (BLOCK_WIDTH + BLOCK_SPACING);
-            float posY = y * (BLOCK_HEIGHT + BLOCK_SPACING) + BLOCK_OFFSET_Y;
-            sf::Vector2f position(posX, posY);
-            sf::Vector2f size(BLOCK_WIDTH, BLOCK_HEIGHT);
-            bloki.emplace_back(position, size, hpPerRow[y]);
-        }
-    }
-}
-
 void Game::resetGame() {
     paletka = Paddle(WINDOW_WIDTH / 2.f, WINDOW_HEIGHT - 30.f, PADDLE_WIDTH, PADDLE_HEIGHT, PADDLE_SPEED);
     pilka = Ball(WINDOW_WIDTH / 2.f, 200.f, BALL_SPEED_X, BALL_SPEED_Y, BALL_RADIUS);
     currentScore = 0;
-    initBlocks();
+    bricks.initBlocks(bloki);
 }
 
 void Game::returnToMenu() {
