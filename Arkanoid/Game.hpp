@@ -11,22 +11,23 @@
 #include "StanGry.hpp"
 #include "GameSnapshot.hpp"
 #include "ScoresManager.hpp"
+#include "Dzwieki.hpp"
 
 class Game {
 private:
     //Sta³e
-    const float WINDOW_WIDTH = 640.f;       // Szerokoœæ okna gry
-    const float WINDOW_HEIGHT = 480.f;      // Wysokoœæ okna gry
-    const int MAX_SCORE = 1920;             // Maksymalny wynik (12*4*40)
-    const float PADDLE_WIDTH = 100.f;       // Szerokoœæ paletki
-    const float PADDLE_HEIGHT = 20.f;       // Wysokoœæ paletki
-    const float PADDLE_SPEED = 8.f;         // Prêdkoœæ paletki
-    const float BALL_RADIUS = 8.f;          // Promieñ pi³ki
-    const float BALL_SPEED_X = 4.f;         // Szybkoœæ x pi³ki
-    const float BALL_SPEED_Y = 3.f;         // Szybkoœæ y pi³ki
-    const int BLOCKS_COLUMNS = 12;          // Iloœæ kolumn bloków
-    static const int BLOCKS_ROWS = 4;       // Iloœæ wierszy bloków
-    const float BLOCK_HEIGHT = 20.f;        // Wysokoœæ bloków
+    const float WINDOW_WIDTH = 640.f;           // Szerokoœæ okna gry
+    const float WINDOW_HEIGHT = 480.f;          // Wysokoœæ okna gry
+    const int MAX_SCORE = 1920;                 // Maksymalny wynik (12*4*40)
+    const float PADDLE_WIDTH = 100.f;           // Szerokoœæ paletki
+    const float PADDLE_HEIGHT = 20.f;           // Wysokoœæ paletki
+    const float PADDLE_SPEED = 8.f;             // Prêdkoœæ paletki
+    const float BALL_RADIUS = 8.f;              // Promieñ pi³ki
+    const float BALL_SPEED_X = 4.f;             // Szybkoœæ x pi³ki
+    const float BALL_SPEED_Y = 3.f;             // Szybkoœæ y pi³ki
+    const int BLOCKS_COLUMNS = 12;              // Iloœæ kolumn bloków
+    static const int BLOCKS_ROWS = 4;           // Iloœæ wierszy bloków
+    const float BLOCK_HEIGHT = 20.f;            // Wysokoœæ bloków
     const float BLOCK_WIDTH = (WINDOW_WIDTH - (BLOCKS_COLUMNS - 1) * 2.f) / BLOCKS_COLUMNS;     // Szerokoœæ bloków
     const float PADDLE_INIT_Y_OFFSET = 30.f;    // Odleg³oœæ paletki od do³u ekranu
     const float BALL_INIT_Y = 200.f;            // Y startowy pi³ki
@@ -44,6 +45,7 @@ private:
     ScoresManager scoresManager;        // Obiekt zarz¹dznia wynikami
     sf::Font font;                      // Czcionka
     std::string Name;                   // Nick gracza
+    Sounds dzwiek;                      // Obiekt dŸwiêków
     int currentScore;                   // Iloœæ punktów
 
     //Metody

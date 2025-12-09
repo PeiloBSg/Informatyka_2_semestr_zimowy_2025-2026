@@ -57,9 +57,10 @@ void Game::handleGlobalKeys(const sf::Event& event) {
 }
 
 void Game::handleMenuInput(const sf::Event& event) {
-    menu.handleMenuKeys(event);  // Obs³uga strza³ek
+    menu.handleMenuKeys(event, dzwiek);   // Obs³uga strza³ek
 
     if (currentState == GameState::Menu && event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Enter) {
+        dzwiek.playSound(SoundType::MenuSelect);
         switch (menu.getSelectedItem()) {
         case 0: // Nowa gra
             resetGame(); 
@@ -96,10 +97,10 @@ void Game::processEvents() {
 void Game::update(sf::Time dt) {
     if (currentState != GameState::Playing) { return; }
     paletka.controlPaddle();
-    pilka.controlBall();
-    pilka.collidePaddle(paletka);
-    currentScore += pilka.collideBricks(bloki);     // Funkcja odpowiedzialna za kolizjê pilki z blokami, która zwraca zdobyte punkty
-    handleGameOver();                               // Sprawdzanie czy pi³ka wypad³a
+    pilka.controlBall(dzwiek);
+    pilka.collidePaddle(paletka, dzwiek);
+    currentScore += pilka.collideBricks(bloki, dzwiek);     // Funkcja odpowiedzialna za kolizjê pilki z blokami, która zwraca zdobyte punkty
+    handleGameOver();                               // Sprawdzanie czy pi³ka wypad³a lub czy zniszczono wszystkie bloki
 }
 
 void Game::render() {

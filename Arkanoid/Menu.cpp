@@ -25,6 +25,7 @@ Menu::Menu(float width, float height)
 	menu[3].setFillColor(sf::Color::White);
 	menu[3].setString("Wyjscie");
 	menu[3].setPosition(sf::Vector2f(width / 3, height / (MAX_LICZBA_POZIOMOW + 1) * 4));
+	currentSound = SoundType::MenuArrow;
 }
 
 //Metody
@@ -85,16 +86,18 @@ void Menu::myDelay(int opoznienie)
 	}
 }
 
-void Menu::handleMenuKeys(const sf::Event& event) {
+void Menu::handleMenuKeys(const sf::Event& event, Sounds& sound) {
 	if (event.type == sf::Event::KeyPressed) {
 		if (event.key.code == sf::Keyboard::Up) {
 			myDelay(250);
 			przesunG();
+			sound.playSound(currentSound);
 		}
 
 		if (event.key.code == sf::Keyboard::Down) {
 			myDelay(250);
 			przesunD();
+			sound.playSound(currentSound);
 		}
 	}
 }

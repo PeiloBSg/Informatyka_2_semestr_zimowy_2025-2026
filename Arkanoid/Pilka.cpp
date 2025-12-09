@@ -1,6 +1,5 @@
 #include "Pilka.hpp"
 
-
 //Konstruktor
 Ball::Ball(float sx, float sy, float svx, float svy, float sr) {
 	Pozycja.x = sx;
@@ -12,7 +11,8 @@ Ball::Ball(float sx, float sy, float svx, float svy, float sr) {
 	shape.setOrigin(r, r);
 	shape.setPosition(Pozycja.x, Pozycja.y);
 	shape.setFillColor(sf::Color::White);
-};
+	currentSound = SoundType::Bounce;
+}
 
 //Metody
 void Ball::move() {
@@ -28,11 +28,19 @@ void Ball::bounceY() {
 	VV.y = -VV.y;
 }
 
-void Ball::collideWalls(float width, float height) {
-	if (Pozycja.x - r <= 0 || Pozycja.x + r >= width)
+void Ball::collideWalls(float width, float height, Sounds& sound) {
+	if (Pozycja.x - r <= 0 || Pozycja.x + r >= width) {
 		bounceX();
-	if (Pozycja.y - r <= 0)
+		currentSound = SoundType::Bounce;
+		sound.playSound(currentSound);
+	}
+		
+	if (Pozycja.y - r <= 0) {
 		bounceY();
+		currentSound = SoundType::Bounce;
+		sound.playSound(currentSound);
+	}
+		
 }
 
 void Ball::draw(sf::RenderTarget& target) {
@@ -48,12 +56,12 @@ void Ball::setVelocity(const sf::Vector2f& velocity) {
 	VV = velocity;
 }
 
-void Ball::controlBall() {
+void Ball::controlBall(Sounds& sound) {
 	move();
-	collideWalls(640.f, 480.f);
+	collideWalls(640.f, 480.f, sound);
 }
 
-void Ball::collidePaddle(const Paddle& paddle) {
+void Ball::collidePaddle(const Paddle& paddle, Sounds& sound) {
 	sf::Vector2f paddlePos = paddle.getPosition();
 	float paddleWidth = paddle.getWidth();
 	float paddleHeight = paddle.getHeight();
@@ -66,11 +74,13 @@ void Ball::collidePaddle(const Paddle& paddle) {
 		// Upewnij siê, ¿e pi³ka jest nad paletk¹
 		if (Pozycja.y < paddlePos.y) {
 			bounceY();
+			currentSound = SoundType::Bounce;
+			sound.playSound(currentSound);
 		}
 	}
 }
 
-int Ball::collideBricks(std::vector<Brick>& bricks) {
+int Ball::collideBricks(std::vector<Brick>& bricks, Sounds& sound) {
 	int pointsEarned = 0;
 	sf::Vector2f ballPos = Pozycja;
 
@@ -103,9 +113,13 @@ int Ball::collideBricks(std::vector<Brick>& bricks) {
 
 				if (minOverlapX < minOverlapY) {
 					bounceX();
+					currentSound = SoundType::Hit;
+					sound.playSound(currentSound);
 				}
 				else {
 					bounceY();
+					currentSound = SoundType::Hit;
+					sound.playSound(currentSound);
 				}
 
 				break; // Po kolizji z jednym blokiem przerywamy

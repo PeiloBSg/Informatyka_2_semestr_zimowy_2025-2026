@@ -1,6 +1,5 @@
 #include "Paletka.hpp"
 
-
 //Konstruktor
 Paddle::Paddle(float sx, float sy, float sd, float sh, float sV) {
 	Pozycja.x = sx;
